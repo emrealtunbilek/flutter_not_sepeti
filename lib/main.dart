@@ -76,7 +76,7 @@ class NotListesi extends StatelessWidget {
           FloatingActionButton(
             tooltip: "Not Ekle",
             heroTag: "NotEkle",
-            onPressed: () => tumKategoriler.length == null
+            onPressed: () => tumKategoriler.length == 0
                 ? _detaySayfasinaGit(context)
                 : _scaffoldKey.currentState.showSnackBar(
               SnackBar(
