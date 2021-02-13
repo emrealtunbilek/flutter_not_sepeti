@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 class NotListesi extends StatelessWidget {
   DatabaseHelper databaseHelper = DatabaseHelper();
   var _scaffoldKey = GlobalKey<ScaffoldState>();
-
+  List<Kategori> tumKategoriler = List<Kategori>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +76,14 @@ class NotListesi extends StatelessWidget {
           FloatingActionButton(
             tooltip: "Not Ekle",
             heroTag: "NotEkle",
-            onPressed: () => _detaySayfasinaGit(context),
+            onPressed: () => tumKategoriler.length != 0
+                ? _detaySayfasinaGit(context)
+                : _scaffoldKey.currentState.showSnackBar(
+              SnackBar(
+                content: Text("Kategori Boş!!! Önce Kategori Ekleyiniz."),
+                duration: Duration(seconds: 2),
+              ),
+            ),
             child: Icon(
               Icons.add,
               color: Colors.white,
